@@ -22,12 +22,19 @@
 
     <include layout="@layout/content_main" />
 
+    <View
+        android:id="@+id/fabBGLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTransBg"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/fabLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/standard_23"
+        android:layout_marginRight="@dimen/child_fab_margin"
         android:layout_marginBottom="@dimen/standard_23"
         android:clipToPadding="false"
         android:gravity="center_vertical"
@@ -39,7 +46,7 @@
             android:layout_height="wrap_content"
             android:text="FabTitle1" />
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/standard_23"
+        android:layout_marginRight="@dimen/child_fab_margin"
         android:layout_marginBottom="@dimen/standard_23"
         android:clipToPadding="false"
         android:gravity="center_vertical"
@@ -65,13 +72,13 @@
             android:layout_height="wrap_content"
             android:text="FabTitle2" />
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             app:fabSize="mini"
-            app:srcCompat="@drawable/ic_camera" />
+            app:srcCompat="@android:drawable/ic_dialog_map"/>
     </LinearLayout>
 
 
@@ -80,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/standard_23"
+        android:layout_marginRight="@dimen/child_fab_margin"
         android:layout_marginBottom="@dimen/standard_23"
         android:clipToPadding="false"
         android:gravity="center_vertical"
@@ -92,14 +99,14 @@
             android:layout_height="wrap_content"
             android:text="FabTitle3" />
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:tint="@android:color/white"
             app:fabSize="mini"
-            app:srcCompat="@drawable/ic_mic" />
+            app:srcCompat="@android:drawable/ic_btn_speak_now" />
     </LinearLayout>
 
 
@@ -120,7 +127,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:gravity="center_vertical"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+            app:srcCompat="@android:drawable/ic_dialog_info" />
     </LinearLayout>
 
 

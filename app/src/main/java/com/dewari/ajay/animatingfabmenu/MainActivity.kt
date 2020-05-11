@@ -1,26 +1,68 @@
 package com.dewari.ajay.animatingfabmenu
 
+import android.animation.Animator
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var isFABOpen = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        fab.setOnClickListener {
+            if (!isFABOpen) {
+                showFABMenu()
+            } else {
+                closeFABMenu()
+            }
         }
+
+        fabBGLayout.setOnClickListener { closeFABMenu() }
+
     }
 
+    private fun showFABMenu() {
+        isFABOpen = true
+        fabLayout1.visibility = View.VISIBLE
+        fabLayout2.visibility = View.VISIBLE
+        fabLayout3.visibility = View.VISIBLE
+        fabBGLayout.visibility = View.VISIBLE
+        fab.animate().rotationBy(180F)
+        fabLayout1.animate().translationY(-resources.getDimension(R.dimen.standard_75))
+        fabLayout2.animate().translationY(-resources.getDimension(R.dimen.standard_120))
+        fabLayout3.animate().translationY(-resources.getDimension(R.dimen.standard_165))
+    }
+
+    private fun closeFABMenu() {
+        isFABOpen = false
+        fabBGLayout.setVisibility(View.GONE)
+        fab.animate().rotation(0F)
+        fabLayout1.animate().translationY(0f)
+        fabLayout2.animate().translationY(0f)
+        fabLayout3.animate().translationY(0f)
+        fabLayout3.animate().translationY(0f)
+            .setListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animator: Animator) {}
+                override fun onAnimationEnd(animator: Animator) {
+                    if (!isFABOpen) {
+                        fabLayout1.visibility = View.GONE
+                        fabLayout2.visibility = View.GONE
+                        fabLayout3.visibility = View.GONE
+                    }
+                }
+
+                override fun onAnimationCancel(animator: Animator) {}
+                override fun onAnimationRepeat(animator: Animator) {}
+            })
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)

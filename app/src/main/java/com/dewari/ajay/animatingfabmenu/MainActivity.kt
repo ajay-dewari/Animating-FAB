@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var isFABOpen = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
         fab.setOnClickListener {
-            if (!isFABOpen) {
+            if (View.GONE == fabBGLayout.visibility) {
                 showFABMenu()
             } else {
                 closeFABMenu()
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFABMenu() {
-        isFABOpen = true
         fabLayout1.visibility = View.VISIBLE
         fabLayout2.visibility = View.VISIBLE
         fabLayout3.visibility = View.VISIBLE
@@ -42,8 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun closeFABMenu() {
-        isFABOpen = false
-        fabBGLayout.setVisibility(View.GONE)
+        fabBGLayout.visibility = View.GONE
         fab.animate().rotation(0F)
         fabLayout1.animate().translationY(0f)
         fabLayout2.animate().translationY(0f)
@@ -52,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             .setListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(animator: Animator) {}
                 override fun onAnimationEnd(animator: Animator) {
-                    if (!isFABOpen) {
+                    if (View.GONE == fabBGLayout.visibility) {
                         fabLayout1.visibility = View.GONE
                         fabLayout2.visibility = View.GONE
                         fabLayout3.visibility = View.GONE
@@ -62,7 +59,9 @@ class MainActivity : AppCompatActivity() {
                 override fun onAnimationCancel(animator: Animator) {}
                 override fun onAnimationRepeat(animator: Animator) {}
             })
+
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)

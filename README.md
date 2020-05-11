@@ -13,4 +13,7 @@ Get the latest sample code from GitHub using Git or download the repository as a
 
 *  The sample code is also available in java code [here](https://github.com/ajaydewari/FloatingActionButtonMenu)
     
+## Screens    
+[![Animating-FAB-Menu](https://github.com/ajaydewari/Animating-FAB-Menu/blob/master/screans/animating_FAB_menu.gif)](#features)
+
 For any query please leave comments, I will be happy to hlep, thank you.

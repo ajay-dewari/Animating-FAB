@@ -16,4 +16,4 @@ Get the latest sample code from GitHub using Git or download the repository as a
 ## Screens    
 [![Animating-FAB-Menu](https://github.com/ajaydewari/Animating-FAB-Menu/blob/master/screans/animating_FAB_menu.gif)](#features)
 
-For any query please leave comments, I will be happy to hlep, thank you.
+For any query please leave comments, in case you find some issue, please feel free to create issue.
